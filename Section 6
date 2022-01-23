@@ -1,0 +1,39 @@
+def add_employee(userId, jobTitleName, firstName, lastName, preferredFullName, employeeCode, region, phoneNumber, emailAddress, salary):
+    try:
+        Employees.append({
+            "userId": userId,
+            "jobTitleName": jobTitleName,
+            "firstName": firstName,
+            "lastName": lastName,
+            "preferredFullName": preferredFullName,
+            "employeeCode": employeeCode,
+            "region": region,
+            "phoneNumber": phoneNumber,
+            "emailAddress": emailAddress,
+            "salary": salary
+        })
+        return True
+    except:
+        return False
+
+def update_employee(userId : String, toChange : String, value : String):
+    try:
+        for employee in Employees:
+            if employee['userId'] == userId:
+                employee[toChange] = value
+
+        return True
+    except:
+        return False
+
+
+def select_employee(filterName : String, value : String):
+    result = []
+    try:
+        for employee in Employees:
+            if employee[filterName] == value:
+                result.append(employee)
+
+        return result
+    except:
+        return False
